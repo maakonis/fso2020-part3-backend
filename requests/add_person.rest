@@ -2,6 +2,6 @@ POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-    "name": "Lebron James",
-    "number": "2342022-23423"
+    "name": "Kristaps Porzingis",
+    "number": "37123-22222"
 }
