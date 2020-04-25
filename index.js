@@ -16,11 +16,12 @@ const Person = require('./models/note')
 
 //cors middleware
 app.use(cors())
-//static build middleware specified that the front-end build version index.html is rendered at the root
-app.use(express.static('build'))
 //json-parser takes the JSON data of the request, transforms to JS object and attaches it as a body
 //property to the request object. Otherwise, request.body would be undefined.
 app.use(express.json())
+//static build middleware specified that the front-end build version index.html is rendered at the root
+app.use(express.static('build'))
+
 //middleware for the deprecated findByIdAndUpdate
 mongoose.set('useFindAndModify', false);
 
