@@ -4,8 +4,7 @@ const app = express()
 //dotenv enables elegant storage of environmental (security sensitive) variables to
 //be stored in a file for development.
 require('dotenv').config()
-//CORS allows to make HTTP requests outside of root domain
-const cors = require('cors')
+
 //mongoose is an easy to use library to interact with the MongoDB database service
 const mongoose = require('mongoose')
 
@@ -14,6 +13,8 @@ const Person = require('./models/note')
 
 //middleware (.use) is set-up prior to any routes in order to process/format requests
 
+//CORS allows to make HTTP requests outside of root domain
+const cors = require('cors')
 //cors middleware
 app.use(cors())
 //json-parser takes the JSON data of the request, transforms to JS object and attaches it as a body
