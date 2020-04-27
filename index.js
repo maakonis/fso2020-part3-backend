@@ -85,7 +85,10 @@ app.post('/api/persons', (request, response) => {
     id: parseInt(Math.random() * 10000, 10)
   })
 
-  person.save().then(savedNote => response.json(savedNote.toJSON()))
+  person
+    .save()
+    .then(savedNote => response.json(savedNote.toJSON()))
+    .catch(error => next(error))
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
