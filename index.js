@@ -13,7 +13,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 // imports a model for that define the structure, form and location of database documents (entries)
-const Person = require('./models/note')
+const Person = require('./models/person')
 
 // middleware (.use) is set-up prior to any routes in order to process/format requests
 
@@ -39,7 +39,7 @@ app.get('/api/persons', (request, response) => {
 
 app.get('/api/persons/:id', (request, response, next) => {
   Person.findById(request.params.id)
-    .then((note) => (note ? response.json(note.toJSON()) : response.status(404).end()))
+    .then((person) => (person ? response.json(person.toJSON()) : response.status(404).end()))
     .catch((error) => {
       next(error)
     })
@@ -85,7 +85,7 @@ app.post('/api/persons', (request, response, next) => {
 
   return person
     .save()
-    .then((savedNote) => response.json(savedNote.toJSON()))
+    .then((savedperson) => response.json(savedperson.toJSON()))
     .catch((error) => next(error))
 })
 
@@ -97,7 +97,7 @@ app.put('/api/persons/:id', (request, response, next) => {
   }
 
   Person.findByIdAndUpdate(request.params.id, person, { new: true })
-    .then((updatedNote) => response.json(updatedNote.toJSON()))
+    .then((updatedperson) => response.json(updatedperson.toJSON()))
     .catch((error) => next(error))
 })
 
